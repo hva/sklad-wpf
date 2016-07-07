@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="Warehouse.Wpf.Module.Shell.Login.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="clr-namespace:Warehouse.Wpf.Controls;assembly=Warehouse.Wpf.Controls"
+    xmlns:local="clr-namespace:Warehouse.Wpf.Module.Shell.Login"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=local:LoginViewModel}">
+
+    <StackPanel Width="300" VerticalAlignment="Center">
+
+        <Grid Height="100" Margin="0,-110,0,10">
+            <controls:AlertBox Content="{Binding Message}" VerticalAlignment="Bottom" />
+        </Grid>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Логин" />
+            <TextBox x:Name="login" Text="{Binding Login, Mode=TwoWay}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Пароль" />
+            <PasswordBox x:Name="password" />
+        </StackPanel>
+
+        <Grid>
+            <controls:ProgressRing IsActive="{Binding IsBusy}" Style="{StaticResource FormProgressRing}" />
+            <Button Content="Войти" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=password}" IsDefault="True" Style="{StaticResource FormButton}" />
+        </Grid>
+    </StackPanel>
+
+</UserControl>
