@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Globalization;
 using System.Reflection;
 using System.Windows;
@@ -32,11 +33,13 @@ namespace Warehouse.Wpf
 
             Container.RegisterType<IAuthStore, AuthStore>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IAuthService, AuthService>(new ContainerControlledLifetimeManager());
-            Container.RegisterType<IApplicationSettings, ApplicationSettings>(new ContainerControlledLifetimeManager());
             Container.RegisterType<ISignalRClient, SignalRClient>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IProductsRepository, ProductsRepository>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IFilesRepository, FilesRepository>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IUsersRepository, UsersRepository>(new ContainerControlledLifetimeManager());
+
+            var baseAddress = ConfigurationManager.AppSettings["BaseAddress"];
+            Container.RegisterType<IApplicationSettings, ApplicationSettings>(new ContainerControlledLifetimeManager(), new InjectionConstructor(baseAddress));
 
             ViewModelLocationProvider.SetDefaultViewModelFactory(x => Container.Resolve(x));
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewTypeFromViewModelType);

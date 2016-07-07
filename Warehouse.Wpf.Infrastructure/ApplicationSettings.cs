@@ -4,6 +4,11 @@ namespace Warehouse.Wpf.Infrastructure
 {
     public class ApplicationSettings : IApplicationSettings
     {
-        public string Endpoint { get { return "http://localhost:63270/"; } }
+        public ApplicationSettings(string baseAddress)
+        {
+            Endpoint = baseAddress;
+        }
+
+        public string Endpoint { get; }
     }
 }
