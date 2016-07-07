@@ -40,6 +40,19 @@ namespace Warehouse.Wpf.Infrastructure
             }
         }
 
+        public static IEnumerable<string> DoubleMaxPrecision(string value, int decimals)
+        {
+            decimal d;
+            if (!decimal.TryParse(value, out d))
+            {
+                yield return "дробное число";
+            }
+            if (d != decimal.Round(d, decimals))
+            {
+                yield return string.Format("не более {0} символ{1} после запятой", decimals, decimals == 1 ? "а" : "ов");
+            }
+        }
+
         public static IEnumerable<string> Long(string value)
         {
             long l;

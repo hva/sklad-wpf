@@ -14,8 +14,8 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
         protected string size;
         private string k;
         private string priceOpt;
-        private long priceRozn;
-        private double weight;
+        private decimal priceRozn;
+        private decimal weight;
         private string count;
         private string nd;
         private string length;
@@ -47,14 +47,14 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
                 Id = id,
                 Name = name,
                 Size = size,
-                K = Math.Round(double.Parse(k), 2),
-                PriceOpt = long.Parse(priceOpt),
-                PriceRozn = priceRozn,
-                Weight = weight,
+                K = double.Parse(k),
+                PriceOpt = double.Parse(priceOpt),
+                PriceRozn = (double) priceRozn,
+                Weight = (double) weight,
                 Count = int.Parse(count),
                 Nd = ParseNd(nd),
-                Length = Math.Round(double.Parse(length), 3),
-                PriceIcome = long.Parse(priceIcome),
+                Length = double.Parse(length),
+                PriceIcome = double.Parse(priceIcome),
                 Internal = Internal,
                 IsSheet = GetIsSheet(),
                 Firma = Firma,
@@ -129,7 +129,7 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
         private void ValidateK()
         {
             errorsContainer.ClearErrors(() => K);
-            errorsContainer.SetErrors(() => K, Validate.Double(K));
+            errorsContainer.SetErrors(() => K, Validate.DoubleMaxPrecision(K, 2));
         }
 
         #endregion
@@ -153,14 +153,14 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
         private void ValidatePriceOpt()
         {
             errorsContainer.ClearErrors(() => PriceOpt);
-            errorsContainer.SetErrors(() => PriceOpt, Validate.Long(PriceOpt));
+            errorsContainer.SetErrors(() => PriceOpt, Validate.DoubleMaxPrecision(PriceOpt, 1));
         }
 
         #endregion
 
         #region PriceRozn
 
-        public long PriceRozn
+        public decimal PriceRozn
         {
             get { return priceRozn; }
             set { SetProperty(ref priceRozn, value); }
@@ -182,17 +182,10 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
 
         #region Weight
 
-        public double Weight
+        public decimal Weight
         {
             get { return weight; }
-            set
-            {
-                if (Math.Abs(weight - value) > double.Epsilon)
-                {
-                    weight = value;
-                    OnPropertyChanged(() => Weight);
-                }
-            }
+            set { SetProperty(ref weight, value); }
         }
 
         private void UpdateWeight()
@@ -204,11 +197,11 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
             else
             {
                 var _count = int.Parse(count);
-                var _length = double.Parse(length);
+                var _length = decimal.Parse(length);
                 var _nd = GetTotalNd();
-                var _k = double.Parse(k);
+                var _k = decimal.Parse(k);
 
-                Weight = Math.Round( (_count * _length + _nd) * _k, 3);
+                Weight = decimal.Round((_count * _length + _nd) * _k, 3);
             }
         }
 
@@ -262,10 +255,10 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
                 var parts = nd.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var x in parts)
                 {
-                    var errors = Validate.Double(x).ToArray();
+                    var errors = Validate.DoubleMaxPrecision(x, 2).ToArray();
                     if (errors.Length > 0)
                     {
-                        errorsContainer.SetErrors(() => Nd, new[] { "дробные числа, разделенные пробелом" });
+                        errorsContainer.SetErrors(() => Nd, new[] { "дробные числа, разделенные пробелом\nне более 2 знаков после запятой" });
                         break;
                     }
                 }
@@ -293,10 +286,10 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
             }
         }
 
-        private void ValidateLength()
+        protected virtual void ValidateLength()
         {
             errorsContainer.ClearErrors(() => Length);
-            errorsContainer.SetErrors(() => Length, Validate.Double(Length));
+            errorsContainer.SetErrors(() => Length, Validate.DoubleMaxPrecision(Length, 2));
         }
 
         public virtual string LenghtLabel { get { return "Длина штанги (м)"; } }
@@ -324,7 +317,7 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
         private void ValidatePriceIcome()
         {
             errorsContainer.ClearErrors(() => PriceIcome);
-            errorsContainer.SetErrors(() => PriceIcome, Validate.Long(PriceIcome));
+            errorsContainer.SetErrors(() => PriceIcome, Validate.DoubleMaxPrecision(PriceIcome, 2));
         }
 
         #endregion
@@ -351,16 +344,16 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
             id = product.Id;
             name = product.Name;
             size = product.Size;
-            k = product.K.ToString("0.##");
-            priceOpt = product.PriceOpt.ToString(CultureInfo.InvariantCulture);
-            priceRozn = product.PriceRozn;
-            weight = product.Weight;
+            k = product.K.ToString(CultureInfo.CurrentCulture);
+            priceOpt = product.PriceOpt.ToString(CultureInfo.CurrentCulture);
+            priceRozn = (decimal) product.PriceRozn;
+            weight = (decimal) product.Weight;
             count = product.Count.ToString(CultureInfo.InvariantCulture);
             if (product.Nd != null)
             {
                 nd = string.Join(" ", product.Nd);
             }
-            length = product.Length.ToString("0.###");
+            length = product.Length.ToString(CultureInfo.CurrentCulture);
             priceIcome = product.PriceIcome.ToString(CultureInfo.InvariantCulture);
             Internal = product.Internal;
             Firma = product.Firma;
@@ -375,13 +368,13 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
                 .ToArray();
         }
 
-        private double GetTotalNd()
+        private decimal GetTotalNd()
         {
             if (string.IsNullOrEmpty(nd))
             {
                 return 0;
             }
-            return nd.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).Sum();
+            return nd.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(decimal.Parse).Sum();
         }
     }
 }

@@ -85,14 +85,15 @@
                 Validation.ErrorTemplate="{StaticResource ErrorTemplateSilverlightStyle}"
                 IsReadOnly="{Binding IsPriceReadonly}">
                 <i:Interaction.Behaviors>
-                    <behaviors:CurrencyFormatTextBoxBehavior />
+                    <!--<behaviors:CurrencyFormatTextBoxBehavior />-->
+                    <behaviors:ThrottledTextBindingBehavior />
                 </i:Interaction.Behaviors>
             </TextBox>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <Label Content="Цена с НДС (розн.)" />
-            <TextBlock Text="{Binding PriceRozn, StringFormat='{}{0:##,#}'}" />
+            <TextBlock Text="{Binding PriceRozn, StringFormat='{}{0:##,0.0 р;#;#}'}" />
         </StackPanel>
 
         <Rectangle Height="1" Fill="#ddd" Margin="3,5" />
@@ -141,8 +142,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <Label Content="Кол-во (кг)" />
-            <TextBlock Text="{Binding Weight, StringFormat='{}{0:0.###}'}" />
+            <Label Content="Кол-во" />
+            <TextBlock Text="{Binding Weight, StringFormat='{}{0:##,0.###;#;#}'}" />
         </StackPanel>
 
         <Rectangle Height="1" Fill="#ddd" Margin="3,5" />
@@ -159,7 +160,8 @@
                 Validation.ErrorTemplate="{StaticResource ErrorTemplateSilverlightStyle}"
                 IsReadOnly="{Binding IsPriceReadonly}">
                 <i:Interaction.Behaviors>
-                    <behaviors:CurrencyFormatTextBoxBehavior />
+                    <!--<behaviors:CurrencyFormatTextBoxBehavior />-->
+                    <behaviors:ThrottledTextBindingBehavior />
                 </i:Interaction.Behaviors>
             </TextBox>
         </StackPanel>

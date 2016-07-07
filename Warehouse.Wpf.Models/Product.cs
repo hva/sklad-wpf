@@ -8,13 +8,13 @@ namespace Warehouse.Wpf.Models
         public string Name { get; set; }
         public string Size { get; set; }
         public double K { get; set; }
-        public long PriceOpt { get; set; }
-        public long PriceRozn { get; set; }
+        public double PriceOpt { get; set; }
+        public double PriceRozn { get; set; }
         public double Weight { get; set; }
         public int Count { get; set; }
         public double[] Nd { get; set; }
         public double Length { get; set; }
-        public long PriceIcome { get; set; }
+        public double PriceIcome { get; set; }
         public string Internal { get; set; }
         public bool IsSheet { get; set; }
         public string Firma { get; set; }

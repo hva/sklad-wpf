@@ -99,8 +99,8 @@ namespace Warehouse.Wpf.Module.ChangePrice
             var data = Items.Select(x => new ProductPriceUpdate
             {
                 Id = x.Product.Id,
-                NewPriceOpt = x.NewPriceOpt,
-                NewPriceRozn = x.NewPriceRozn
+                NewPriceOpt = (double) x.NewPriceOpt,
+                NewPriceRozn = (double) x.NewPriceRozn
             }).ToArray();
 
             IsBusy = true;

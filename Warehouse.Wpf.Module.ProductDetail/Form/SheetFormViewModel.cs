@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using Warehouse.Wpf.Infrastructure;
 using Warehouse.Wpf.Models;
@@ -49,6 +50,16 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
 
         #endregion
 
+        #region Length
+
+        protected override void ValidateLength()
+        {
+            errorsContainer.ClearErrors(() => Length);
+            errorsContainer.SetErrors(() => Length, Validate.Double(Length));
+        }
+
+        #endregion
+
         protected override bool GetIsSheet()
         {
             return true;
@@ -63,7 +74,7 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
             else
             {
                 var val = sheetSizes[1] / 1000 * sheetSizes[2] / 1000;
-                Length = val.ToString("0.000");
+                Length = Math.Round(val, 3).ToString(CultureInfo.CurrentCulture);
             }
         }
 
