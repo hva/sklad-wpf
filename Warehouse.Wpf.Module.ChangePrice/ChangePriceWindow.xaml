@@ -32,7 +32,7 @@
 
         <StackPanel Orientation="Horizontal">
             <Label Content="Процент" Width="Auto" />
-            <TextBox Text="{Binding Percentage, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" Width="40" />
+            <TextBox Text="{Binding Percentage, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" Width="80" />
         </StackPanel>
 
         <ListView Grid.Row="1" ItemsSource="{Binding Items}">
@@ -55,21 +55,28 @@
                     <GridViewColumn Header="Старая цена&#10;(опт.)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Product.PriceOpt, StringFormat='{}{0:##,0.0}'}" Opacity="0.6" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                                <TextBlock Text="{Binding Product.PriceOpt, StringFormat='{}{0:#,0.0}'}" Opacity="0.6" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Старая цена&#10;(розн.)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Product.PriceRozn, StringFormat='{}{0:##,0.0}'}" Opacity="0.6" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                                <TextBlock Text="{Binding Product.PriceRozn, StringFormat='{}{0:#,0.0}'}" Opacity="0.6" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Новая цена&#10;(опт.)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding NewPriceOpt, StringFormat='{}{0:##,0.0}'}" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                                <TextBlock Text="{Binding NewPriceOpt, StringFormat='{}{0:#,0.0}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Новая цена&#10;(розн.)">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NewPriceRozn, StringFormat='{}{0:#,0.0}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

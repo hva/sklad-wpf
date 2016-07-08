@@ -104,21 +104,21 @@
                     <GridViewColumn Header="Цена оптовая">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding PriceOpt, StringFormat='{}{0:##,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
+                                <TextBlock Text="{Binding PriceOpt, StringFormat='{}{0:#,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Цена розничная">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding PriceRozn, StringFormat='{}{0:##,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
+                                <TextBlock Text="{Binding PriceRozn, StringFormat='{}{0:#,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Кол-во (кг)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Weight, StringFormat='{}{0:#.000,#;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
+                                <TextBlock Text="{Binding Weight, StringFormat='{}{0:#,0.000,#;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -152,7 +152,7 @@
                     <GridViewColumn Header="Приходная">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding PriceIcome, StringFormat='{}{0:##,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
+                                <TextBlock Text="{Binding PriceIcome, StringFormat='{}{0:#,0.0;#;#}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=models:Product}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
