@@ -69,24 +69,6 @@ namespace Warehouse.Wpf.Data
             }
         }
 
-        //public async Task<AsyncResult<Product[]>> GetNamesAsync(List<string> ids)
-        //{
-        //    using (var client = httpClientFactory())
-        //    {
-        //        var data = JsonConvert.SerializeObject(ids);
-        //        using (var content = new StringContent(data, Encoding.UTF8, "application/json"))
-        //        {
-        //            var uri = new Uri("api/products/getNames", UriKind.Relative);
-        //            using (var resp = await client.PostAsync(uri, content))
-        //            {
-        //                var str = await resp.Content.ReadAsStringAsync();
-        //                var res = JsonConvert.DeserializeObject<Product[]>(str);
-        //                return new AsyncResult<Product[]> { Result = res, Succeed = true };
-        //            }
-        //        }
-        //    }
-        //}
-
         public async Task<AsyncResult<string>> SaveAsync(Product product)
         {
             using (var client = httpClientFactory())
@@ -106,7 +88,7 @@ namespace Warehouse.Wpf.Data
                     }
                     else
                     {
-                        var uri = new Uri(string.Concat("api/products/", product.Id), UriKind.Relative);
+                        var uri = new Uri(string.Concat("api/v2/products/", product.Id), UriKind.Relative);
                         var resp = await client.PutAsync(uri, content);
                         if (resp.StatusCode == HttpStatusCode.OK)
                         {
@@ -126,7 +108,7 @@ namespace Warehouse.Wpf.Data
                 var data = JsonConvert.SerializeObject(prices);
                 using (var content = new StringContent(data, Encoding.UTF8, "application/json"))
                 {
-                    var uri = new Uri("api/products/updatePrice", UriKind.Relative);
+                    var uri = new Uri("api/v2/products/updatePrice", UriKind.Relative);
                     var resp = await client.PutAsync(uri, content);
                     if (resp.StatusCode == HttpStatusCode.OK)
                     {

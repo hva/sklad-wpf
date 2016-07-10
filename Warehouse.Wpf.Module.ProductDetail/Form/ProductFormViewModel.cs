@@ -348,13 +348,13 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
             priceOpt = product.PriceOpt.ToString(CultureInfo.CurrentCulture);
             priceRozn = (decimal) product.PriceRozn;
             weight = (decimal) product.Weight;
-            count = product.Count.ToString(CultureInfo.InvariantCulture);
+            count = product.Count.ToString();
             if (product.Nd != null)
             {
                 nd = string.Join(" ", product.Nd);
             }
             length = product.Length.ToString(CultureInfo.CurrentCulture);
-            priceIcome = product.PriceIcome.ToString(CultureInfo.InvariantCulture);
+            priceIcome = product.PriceIcome.ToString(CultureInfo.CurrentCulture);
             Internal = product.Internal;
             Firma = product.Firma;
         }
