@@ -12,7 +12,7 @@
                 var _l = (decimal) length;
                 rozn *= _l;
             }
-            return decimal.Ceiling(rozn * 10) / 10;
+            return decimal.Ceiling(rozn * 100) / 100;
         }
 
         public static decimal CalculatePriceRozn(this Product p)

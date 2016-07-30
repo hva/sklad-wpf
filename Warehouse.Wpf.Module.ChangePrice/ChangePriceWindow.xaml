@@ -62,7 +62,7 @@
                     <GridViewColumn Header="Старая цена&#10;(розн.)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Product.PriceRozn, StringFormat='{}{0:#,0.0}'}" Opacity="0.6" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                                <TextBlock Text="{Binding Product.PriceRozn, StringFormat='{}{0:#,0.00}'}" Opacity="0.6" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -76,7 +76,7 @@
                     <GridViewColumn Header="Новая цена&#10;(розн.)">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding NewPriceRozn, StringFormat='{}{0:#,0.0}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
+                                <TextBlock Text="{Binding NewPriceRozn, StringFormat='{}{0:#,0.00}'}" HorizontalAlignment="Right" d:DataContext="{d:DesignInstance Type=local:ChangePriceItem}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
