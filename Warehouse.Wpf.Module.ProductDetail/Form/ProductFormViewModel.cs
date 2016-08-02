@@ -153,7 +153,7 @@ namespace Warehouse.Wpf.Module.ProductDetail.Form
         private void ValidatePriceOpt()
         {
             errorsContainer.ClearErrors(() => PriceOpt);
-            errorsContainer.SetErrors(() => PriceOpt, Validate.DoubleMaxPrecision(PriceOpt, 1));
+            errorsContainer.SetErrors(() => PriceOpt, Validate.DoubleMaxPrecision(PriceOpt, 2));
         }
 
         #endregion
