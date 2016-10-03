@@ -3,11 +3,14 @@
     <Fragment>
         <ComponentGroup Id="ProductComponents">
             <!-- exe -->
-            <Component Id="cmp39712238614488262C2505EB481BD9DA" Directory="INSTALLFOLDER" Guid="B52FDECE-1BF4-4D55-B565-C1D23A7FB1D8">
-                <File Id="filC8DB4EEDB726C9D370F5134942A79521" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.exe" />
+            <Component Id="MainExecutable" Directory="INSTALLFOLDER" Guid="B52FDECE-1BF4-4D55-B565-C1D23A7FB1D8">
+              <File Id="SkladExe" KeyPath="yes" Name="$(var.Warehouse.Wpf.TargetFileName)" Source="$(var.Warehouse.Wpf.TargetPath)">
+                <Shortcut Id="DesktopShortcut" Name="Sklad" Description="Ярлык на рабочем столе" WorkingDirectory="INSTALLFOLDER" Directory="DesktopFolder" Advertise="yes" Icon="ProgramIcon.exe" />
+                <Shortcut Id="ProgramsMenuShortcut" Name="Sklad" Description="Ярлык на рабочем столе" WorkingDirectory="INSTALLFOLDER" Directory="ProgramMenuFolder" Advertise="yes" Icon="ProgramIcon.exe" />
+              </File>
             </Component>
             <Component Id="cmp26999AE78D3984E82F603D24B2A87009" Directory="INSTALLFOLDER" Guid="D8670857-8109-4155-ACB8-053E4057CFB1">
-                <File Id="fil8DD75BACDE2302ACF21FC69076117E54" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.exe.config" />
+                <File Id="fil8DD75BACDE2302ACF21FC69076117E54" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetPath).config" />
             </Component>
 
             <!-- dlls -->

@@ -4,7 +4,7 @@
       Name="Sklad Desktop" Manufacturer="Skill"
       Id="1EDF5D89-5BB2-4A12-B8FD-9DAA9F363639"
       UpgradeCode="E1E7E6A8-D96D-4D26-926E-8F638B9A3992"
-      Language="1049" Version="1.0.0.0">
+      Language="1049" Codepage="1251" Version="1.0.0.0">
     <Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <Media Id="1" Cabinet="skill.cab" EmbedCab="yes" />
 
@@ -21,6 +21,12 @@
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Sklad" />
       </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs" />
+      <Directory Id="DesktopFolder" Name="Desktop" />
     </Directory>
+  </Fragment>
+
+  <Fragment>
+    <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
   </Fragment>
 </Wix>
