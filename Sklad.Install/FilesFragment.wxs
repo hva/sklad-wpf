@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <!-- exe -->
+            <Component Id="cmp39712238614488262C2505EB481BD9DA" Directory="INSTALLFOLDER" Guid="B52FDECE-1BF4-4D55-B565-C1D23A7FB1D8">
+                <File Id="filC8DB4EEDB726C9D370F5134942A79521" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.exe" />
+            </Component>
+            <Component Id="cmp26999AE78D3984E82F603D24B2A87009" Directory="INSTALLFOLDER" Guid="D8670857-8109-4155-ACB8-053E4057CFB1">
+                <File Id="fil8DD75BACDE2302ACF21FC69076117E54" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.exe.config" />
+            </Component>
+
+            <!-- dlls -->
+            <Component Id="cmp2B9822AB4FE29C97D7C74389B67E3A7B" Directory="INSTALLFOLDER" Guid="0D4C9AF5-B477-4315-9807-00D0FCA3461A">
+                <File Id="filD10FADEA0033B1FF9119AD86377B6DFB" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.AspNet.SignalR.Client.dll" />
+            </Component>
+            <Component Id="cmp16E1C0739D5A5F6F4980AA794546A49C" Directory="INSTALLFOLDER" Guid="49AB1062-4C5D-4A4A-86E0-F700260BD753">
+                <File Id="filC589AEE090EE59D9AA4DED9A965A4345" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.Composition.dll" />
+            </Component>
+            <Component Id="cmp45F1F6A6895F5229A6C52DA6B1CDFD34" Directory="INSTALLFOLDER" Guid="630FC972-C5AE-41C5-A761-DD7532812A99">
+                <File Id="filC2538946AAF3895C21F7BE551D65BE2B" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.Interactivity.dll" />
+            </Component>
+            <Component Id="cmpEDC0BA7C23D0A34C964550263E6FB6C8" Directory="INSTALLFOLDER" Guid="AFF7F9FC-32DA-450D-9794-337B95C50B7D">
+                <File Id="fil867509473E11EAFEDA899CFA322F6134" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.Mvvm.Desktop.dll" />
+            </Component>
+            <Component Id="cmpA38524B6D6A9673D7FAFE09E12ACB10E" Directory="INSTALLFOLDER" Guid="B45B8D16-287D-4511-874E-AD10F5B7EFA9">
+                <File Id="filD0BE73B5D7481AD9F8B278808E8CE41C" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.Mvvm.dll" />
+            </Component>
+            <Component Id="cmp49A45CCD7877EC2FAB985951FA4BE25A" Directory="INSTALLFOLDER" Guid="6DF037E9-129E-4C87-ABC0-25C0F76196C9">
+                <File Id="fil42B9EE63301F381A7CEBB93048C54BF1" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.PubSubEvents.dll" />
+            </Component>
+            <Component Id="cmp8FC9961143BC3920D283E65C4271BD8C" Directory="INSTALLFOLDER" Guid="A2A0614E-54F6-4FB5-AC48-C09524CCDCAE">
+                <File Id="fil089F5C9A286E4491BECD16794466B786" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.SharedInterfaces.dll" />
+            </Component>
+            <Component Id="cmp80F20907A7F227CCE57D9E4992B9A778" Directory="INSTALLFOLDER" Guid="23CFF822-12F6-47BA-98F9-364180B697DD">
+                <File Id="fil14888C116BD39FA15EB1E0D8CF44C387" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Prism.UnityExtensions.dll" />
+            </Component>
+            <Component Id="cmpF2F1C15A47B64F045101B1AE5B4D6054" Directory="INSTALLFOLDER" Guid="70F54495-8B56-45C8-B2C6-BD973AC694F0">
+                <File Id="filC342596B66E98254BB6E1CFFE50AE4AA" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.ServiceLocation.dll" />
+            </Component>
+            <Component Id="cmpAA856A11EEF773F32618D29332CADFD0" Directory="INSTALLFOLDER" Guid="422CB3D5-BE7A-4A7E-AC97-261D1E5742F2">
+                <File Id="filFBB0E3892854598F759A072FB8581B46" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Unity.Configuration.dll" />
+            </Component>
+            <Component Id="cmp5141EFC969B8F1A9A0F1A01FFAD874BA" Directory="INSTALLFOLDER" Guid="9B001ABA-7008-4875-A807-954D5DE87117">
+                <File Id="filE0B15D2B280E1EDFAB44F822C47D44ED" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Unity.dll" />
+            </Component>
+            <Component Id="cmpB48E67D919D1C42D78781F3B5D6E4336" Directory="INSTALLFOLDER" Guid="CFF165C1-2713-45F9-973E-617BA6594FBD">
+                <File Id="fil53564AE840DB9CE660FE1F02DB1CB224" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Microsoft.Practices.Unity.RegistrationByConvention.dll" />
+            </Component>
+            <Component Id="cmpBC4FC00A26E7D32479D42D3411317FC5" Directory="INSTALLFOLDER" Guid="13C11DD8-5FFF-4C2A-8A70-CCB15001F7B1">
+                <File Id="fil90A8AAD9FC612906D405476D61CEA3F4" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp017BFB3832A5B110A2B3A350E13F2A5C" Directory="INSTALLFOLDER" Guid="83A31981-9BAD-465B-97BE-A9D1E8AC6AAB">
+                <File Id="fil17E34524E8398461D615894C92558FE9" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\System.Windows.Interactivity.dll" />
+            </Component>
+            <Component Id="cmp5BB7FFD65DCB116C71753F303C809D40" Directory="INSTALLFOLDER" Guid="BA240F4C-C64A-49B5-B617-90B87A446FC7">
+                <File Id="filB8B7C178D7B80C6FF99BB7ABD917FA25" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Auth.dll" />
+            </Component>
+            <Component Id="cmpD262146F4B73AB0EC0EEDD82811BB976" Directory="INSTALLFOLDER" Guid="53E93AAB-4B2E-45C7-9F5D-3BB7D063AB08">
+                <File Id="fil65E6AEB08170B48D939E9E9C1EA8DFE8" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Controls.dll" />
+            </Component>
+            <Component Id="cmp5FAD3B8834397CB7B328A7EC9FB381CE" Directory="INSTALLFOLDER" Guid="7EBD0BDE-5A3F-4060-A535-0CF28445597F">
+                <File Id="filF641F989FCFB6C377602B37CC6873A5E" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Data.dll" />
+            </Component>
+            <Component Id="cmp42251ED6DE1831A578458BD629F917C6" Directory="INSTALLFOLDER" Guid="6E74854C-A484-4127-B14E-5E6FA293654E">
+                <File Id="fil456B4F5636298C5447BDEEE7E044464A" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Events.dll" />
+            </Component>
+            <Component Id="cmpA54BBA82F50DDD17B146C18FE70F19F8" Directory="INSTALLFOLDER" Guid="678637A9-C7E1-4ADD-819A-AB73159882F9">
+                <File Id="filC39A8C9373A24F48AA47BC1A0C4A1B54" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Infrastructure.dll" />
+            </Component>
+            <Component Id="cmp57F1A4988EA539C4A63B646EC53EA331" Directory="INSTALLFOLDER" Guid="9A28D87A-9D0D-4292-B82E-03737D8DD77A">
+                <File Id="filF1EDBAC25518FCF8327B8251D3638B43" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Models.dll" />
+            </Component>
+            <Component Id="cmp31717EB942CF4F3EC9EBEA2AE572D3C7" Directory="INSTALLFOLDER" Guid="55B443E2-B74B-4132-B8AE-DFB1D2E1ADFD">
+                <File Id="filB94E2238AB3A528F43A90E50BC99CCE3" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.ChangePrice.dll" />
+            </Component>
+            <Component Id="cmp9DC0B87E698CB4F07879CD606EF15D26" Directory="INSTALLFOLDER" Guid="8F091933-B104-42EC-9B08-CEAC43259904">
+                <File Id="filAE8093F8413D922C0C0C8EB17545368F" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.Files.dll" />
+            </Component>
+            <Component Id="cmpE768278F4ADCF63D347B857BD1DBA7E1" Directory="INSTALLFOLDER" Guid="40824CAD-6EA9-420A-9CE3-9A92CCD2E014">
+                <File Id="fil9E32A5D7B4A1C805F4438FE56D3B5F52" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.Main.dll" />
+            </Component>
+            <Component Id="cmp6F8D4AD1939E8D12BE56A8C71964D1F8" Directory="INSTALLFOLDER" Guid="985A50AC-DAD5-4C44-AE6D-8CAD9431DACD">
+                <File Id="fil4F90E6579E8B6470178697A272F643EF" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.ProductDetail.dll" />
+            </Component>
+            <Component Id="cmp49F1FA86DAAAB954CD5D3AB550D0BF8B" Directory="INSTALLFOLDER" Guid="1DDFE1A2-95AE-40AA-B2EF-3D838F5363E0">
+                <File Id="filD1183A6C833F1B89B3C8450F0DCF5C63" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.Settings.dll" />
+            </Component>
+            <Component Id="cmpEA185B51B1752BEB913D5CB0BBAA60C8" Directory="INSTALLFOLDER" Guid="BB91D2BF-9998-4CE4-AFDF-A0389FEFA2F0">
+                <File Id="filA46B513B5489BF00FF0A3BFC658FD7FB" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.Shell.dll" />
+            </Component>
+            <Component Id="cmp570E088C8DBBFA74F67CA4C65F6CFC11" Directory="INSTALLFOLDER" Guid="DD4B5B5A-D2DB-4844-8886-B1CB057E87E5">
+                <File Id="fil024F27ECDCA738D56DB3CB1DAE726FE5" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Module.Users.dll" />
+            </Component>
+            <Component Id="cmp2BB44871086389A301849306FD127CB0" Directory="INSTALLFOLDER" Guid="4DFCB36D-A916-4F4B-A0CE-7DC72FE28084">
+                <File Id="fil29A4E77C115CB2D8FF01A1A0EE1DE41E" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.Mvvm.dll" />
+            </Component>
+            <Component Id="cmpFD15AD554C571795B40A836A1FFB57D2" Directory="INSTALLFOLDER" Guid="E89D50D1-DCA9-4811-951C-DA6E46BD6484">
+                <File Id="fil524F9E992E58F7FF256D75EF85CCC294" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetDir)\Warehouse.Wpf.SignalR.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>
