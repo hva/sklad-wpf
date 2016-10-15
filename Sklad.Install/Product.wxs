@@ -15,9 +15,6 @@
       <ComponentGroupRef Id="ProductComponents" />
     </Feature>
 
-    <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
-    <Property Id="ARPPRODUCTICON" Value="ProgramIcon.exe" />
-
     <UIRef Id="SkladUI" />
   </Product>
 
@@ -32,9 +29,20 @@
   </Fragment>
 
   <Fragment>
+    <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
+    <Property Id="ARPPRODUCTICON" Value="ProgramIcon.exe" />
+  </Fragment>
+
+  <Fragment>
+    <WixVariable Id="WixUIDialogBmp" Value="dlgbmp.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value="bannrbmp.bmp" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <UI Id="SkladUI">
-      <UIRef Id="WixUI_Mondo" />
+      <UIRef Id="WixUI_InstallDir" />
       <UIRef Id="WixUI_ErrorProgressText" />
+      <!--skip licence agreement-->
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
     </UI>
   </Fragment>
 </Wix>

@@ -41,6 +41,10 @@
       <Name>WixUIExtension</Name>
     </WixExtension>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bannrbmp.bmp" />
+    <Content Include="dlgbmp.bmp" />
+  </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
     <PreBuildEvent>rem heat dir "$(SolutionDir)Warehouse.Wpf\bin\$(Configuration)"^
