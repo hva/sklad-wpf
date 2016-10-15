@@ -14,6 +14,10 @@
     <Feature Id="ProductFeature" Title="Main Product" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
     </Feature>
+
+    <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
+
+    <UIRef Id="SkladUI" />
   </Product>
 
   <Fragment>
@@ -27,6 +31,9 @@
   </Fragment>
 
   <Fragment>
-    <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
+    <UI Id="SkladUI">
+      <UIRef Id="WixUI_Mondo" />
+      <UIRef Id="WixUI_ErrorProgressText" />
+    </UI>
   </Fragment>
 </Wix>
