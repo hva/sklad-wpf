@@ -16,6 +16,7 @@
     </Feature>
 
     <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
+    <Property Id="ARPPRODUCTICON" Value="ProgramIcon.exe" />
 
     <UIRef Id="SkladUI" />
   </Product>
