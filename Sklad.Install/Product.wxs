@@ -17,7 +17,8 @@
     </Condition>
 
     <Feature Id="ProductFeature" Title="Main Product" Level="1">
-      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="ExecutableComponents" />
+      <ComponentGroupRef Id="LibraryComponents" />
     </Feature>
 
     <UIRef Id="SkladUI" />
@@ -36,6 +37,17 @@
   <Fragment>
     <Icon Id="ProgramIcon.exe" SourceFile="$(var.Warehouse.Wpf.TargetPath)" />
     <Property Id="ARPPRODUCTICON" Value="ProgramIcon.exe" />
+    <ComponentGroup Id="ExecutableComponents">
+      <Component Id="MainExecutable" Directory="INSTALLFOLDER" Guid="B52FDECE-1BF4-4D55-B565-C1D23A7FB1D8">
+        <File Id="SkladExe" KeyPath="yes" Name="$(var.Warehouse.Wpf.TargetFileName)" Source="$(var.Warehouse.Wpf.TargetPath)">
+          <Shortcut Id="DesktopShortcut" Name="Sklad" Description="Desktop shortcut" WorkingDirectory="INSTALLFOLDER" Directory="DesktopFolder" Advertise="yes" Icon="ProgramIcon.exe" />
+          <Shortcut Id="ProgramsMenuShortcut" Name="Sklad" Description="Programs menu shortcut" WorkingDirectory="INSTALLFOLDER" Directory="ProgramMenuFolder" Advertise="yes" Icon="ProgramIcon.exe" />
+        </File>
+      </Component>
+      <Component Id="MainConfig" Directory="INSTALLFOLDER" Guid="D8670857-8109-4155-ACB8-053E4057CFB1">
+        <File Id="SkladExeConfig" KeyPath="yes" Source="$(var.Warehouse.Wpf.TargetPath).config" />
+      </Component>
+    </ComponentGroup>
   </Fragment>
 
   <Fragment>
