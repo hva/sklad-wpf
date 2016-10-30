@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
 using WixSharp;
+using WixSharp.CommonTasks;
+using WixSharp.Controls;
+using File = WixSharp.File;
 
 namespace Sklad.Installer
 {
@@ -19,7 +22,12 @@ namespace Sklad.Installer
                 Dirs = new[]
                 {
                     new Dir(@"%ProgramFiles%\Sklad",
-                        new DirFiles("*.dll")
+                        new DirFiles("*.dll"),
+                        new File("Warehouse.Wpf.exe",
+                            new FileShortcut("Sklad", @"%Desktop%"),
+                            new FileShortcut("Sklad", @"%ProgramMenu%")
+                        ),
+                        new File("Warehouse.Wpf.exe.config")
                     )
                 },
                 OutFileName = "Sklad",
@@ -29,10 +37,12 @@ namespace Sklad.Installer
                     Manufacturer = "Skill",
                     ProductIcon = @"..\Warehouse.Wpf\Icon.ico",
                 },
-                
+                UI = WUI.WixUI_InstallDir,
+                BannerImage = Path.Combine(Environment.CurrentDirectory, "bannrbmp.bmp"),
+                BackgroundImage = Path.Combine(Environment.CurrentDirectory, "dlgbmp.bmp"),
             };
 
-            project.ResolveWildCards();
+            project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
 
             project.BuildMsi();
         }
