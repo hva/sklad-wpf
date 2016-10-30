@@ -86,7 +86,7 @@
   -->
   <UsingTask AssemblyFile="$(SolutionDir)packages\WixSharp.1.0.44.0\build\SetEnvVar.dll" TaskName="SetEnvVar" />
   <PropertyGroup>
-    <PostBuildEvent>cd ..\..
+    <PostBuildEvent>cd $(ProjectDir)
 "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
