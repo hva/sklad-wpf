@@ -44,6 +44,8 @@ namespace Sklad.Installer
 
             project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
 
+            project.SetNetFxPrerequisite("NETFRAMEWORK45", "Пожалуйста установите\nMicrosoft .NET Framework 4.5");
+
             project.BuildMsi();
         }
     }
