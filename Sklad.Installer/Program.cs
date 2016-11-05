@@ -12,11 +12,12 @@ namespace Sklad.Installer
         static void Main(string[] args)
         {
             var configuration = Environment.GetEnvironmentVariable("CONFIGURATION") ?? "Debug";
+            var version = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_VERSION") ?? "0.0.1.0";
             var project = new Project
             {
+                Version = new Version(version),
                 Name = "Sklad Desktop",
                 GUID = new Guid("1EDF5D89-5BB2-4A12-B8FD-9DAA9F363639"),
-                UpgradeCode = new Guid("E1E7E6A8-D96D-4D26-926E-8F638B9A3992"),
                 Language = "ru-RU",
                 SourceBaseDir = @"..\Warehouse.Wpf\bin\" + configuration,
                 Dirs = new[]
@@ -40,6 +41,12 @@ namespace Sklad.Installer
                 UI = WUI.WixUI_InstallDir,
                 BannerImage = Path.Combine(Environment.CurrentDirectory, "bannrbmp.bmp"),
                 BackgroundImage = Path.Combine(Environment.CurrentDirectory, "dlgbmp.bmp"),
+                MajorUpgrade = new MajorUpgrade
+                {
+                    //AllowSameVersionUpgrades = true, //uncomment this if the the upgrade version is different by only the fourth field
+                    Schedule = UpgradeSchedule.afterInstallInitialize,
+                    DowngradeErrorMessage = "Более новая версия [ProductName] уже установлена."
+                }
             };
 
             project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
