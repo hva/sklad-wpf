@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-ru" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <!-- https://github.com/wixtoolset/wix3/tree/develop/src/ext/UtilExtension/wixlib -->
+  <String Id="msierrXmlFileFailedRead">There was a failure while configuring XML files.</String>
+  <String Id="msierrXmlFileFailedOpen">Failed to open XML file [3], system error: [2]</String>
+  <String Id="msierrXmlFileFailedSelect">Failed to find node: [3] in XML file: [4], system error: [2]</String>
+  <String Id="msierrXmlFileFailedSave">Failed to save changes to XML file [3], system error: [2]</String>
+</WixLocalization>

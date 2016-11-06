@@ -72,12 +72,7 @@
   <ItemGroup>
     <Content Include="bannrbmp.bmp" />
     <Content Include="dlgbmp.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Warehouse.Wpf\Warehouse.Wpf.csproj">
-      <Project>{8dc55023-47a1-4243-9ce9-c3838ac16faf}</Project>
-      <Name>Warehouse.Wpf</Name>
-    </ProjectReference>
+    <Content Include="ru-ru.wxl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\WixSharp.1.0.44.0\build\WixSharp.targets" Condition="Exists('..\packages\WixSharp.1.0.44.0\build\WixSharp.targets')" />
