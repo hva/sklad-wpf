@@ -70,7 +70,7 @@ namespace Sklad.Installer
                 x => x.HasAttribute("Id", value => value.EndsWith("Warehouse.Wpf.exe.config"))
             );
 
-            var baseAddress = Environment.GetEnvironmentVariable("BaseAddress") ?? "http://localhost:63270";
+            var baseAddress = Environment.GetEnvironmentVariable("SKLAD_BASE_ADDRESS") ?? "http://localhost:63270";
 
             file?.Parent?.Add(
                 new XElement(WixExtension.Util.ToXNamespace() + "XmlFile",
